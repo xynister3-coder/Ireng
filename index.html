@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Vione Ireng Elek</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Impact, Arial Black, sans-serif;
+}
+
+body {
+  background-color: #2b1a10;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("https://i.imgur.com/9ZQZ6ZP.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#text {
+  font-size: 64px;
+  color: #6b3e1e;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+
+  text-shadow:
+    0 0 10px #8b5a2b,
+    0 0 20px #a66a3f,
+    0 0 40px #c68642;
+
+  transition: transform 0.1s, text-shadow 0.1s;
+}
+
+#text:active {
+  transform: scale(0.92);
+  text-shadow:
+    0 0 20px #a66a3f,
+    0 0 40px #c68642,
+    0 0 80px #ffcc99;
+}
+</style>
+</head>
+
+<body>
+
+<div id="text">vione ireng elek 😂</div>
+
+<script>
+const text = document.getElementById("text");
+
+text.addEventListener("click", () => {
+  const suara = new SpeechSynthesisUtterance("ireng");
+  suara.lang = "id-ID";
+  suara.pitch = 0.8;
+  suara.rate = 0.9;
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(suara);
+});
+</script>
+
+</body>
+</html>
